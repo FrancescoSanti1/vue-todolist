@@ -17,9 +17,11 @@ var app = new Vue(
                 this.coseDaFare.splice(indice, 1);
             },
             aggiungiTask: function() {
-                let nuovoOggetto = {text: this.nuovaTask, done: false};
-                this.coseDaFare.push(nuovoOggetto);
-                this.nuovaTask = "";
+                if (this.nuovaTask.length > 3) {
+                    let nuovoOggetto = {text: this.nuovaTask, done: false};
+                    this.coseDaFare.push(nuovoOggetto);
+                    this.nuovaTask = "";
+                }
             },
             segnaComeFatta: function(indice) {
                 this.coseDaFare[indice].done = true;
