@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vue To-do-list</title>
+</head>
+<body>
+    
+    <div id="myApp">
+        <h1>To-do-list</h1>
+        <div class="contenitore-flex">
+            <div class="contenuti">
+                <input type="text" v-model="nuovaTask" @keydown.enter="aggiungiTask" placeholder="Aggiungi nuova task">
+                <div class="btn" @click="aggiungiTask">Aggiungi</div>
+                <ul>
+                    <li v-for="(task, i) in coseDaFare" :class="task.done ? 'fatto' : ''" :key="i">
+                        {{task.text}}
+                        <span @click="eliminaTask(i)">&cross;</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
